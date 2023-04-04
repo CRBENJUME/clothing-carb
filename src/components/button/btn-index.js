@@ -7,7 +7,9 @@ const BUTTON_TYPE_CLASSES = {
 
 export default function Button ({ children, buttonType, ...args }){
     return (
-        <button className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}>
+        <button className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+            {...args}
+        >
             {children}
         </button>
     )
