@@ -30,7 +30,8 @@ export default function SignUpForm () {
             const { user } = await createAuthUserWithEmailAndPassword(
                 email,
                 password
-              );
+            );
+
             await createUserDocument( user, { displayName })
         } catch (e) {
             console.log(e)

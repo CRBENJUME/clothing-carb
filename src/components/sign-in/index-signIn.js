@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signInWithGooglePopup, createUserDocument, signInAuthWithEmailAndPassword } from "../../utils/firebase";
+import { signInWithGooglePopup, signInAuthWithEmailAndPassword } from "../../utils/firebase";
 import FormInput from "../form-input/form";
 import Button from "../button/btn-index";
 
@@ -21,15 +21,15 @@ export default function SignInForm () {
     }
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocument(user);
+        await signInWithGooglePopup();
     }
     
     const handleSubmit = async (event) => {
         event.preventDefault()
+
         try {
-            const response = await signInAuthWithEmailAndPassword(email, password)
-            console.log(response)
+            // eslint-disable-next-line
+            const { user } = await signInAuthWithEmailAndPassword(email, password)
             resetFormFields()
         } catch (e) {
             switch (e.code) {
@@ -65,7 +65,7 @@ export default function SignInForm () {
                 <FormInput label="Password" type='password' required onChange={handleChange} name='password' value={password}/>
 
                 <div className="buttons-container">
-                    <Button type='submit'>Sign Up</Button>
+                    <Button type='submit'>Sign In</Button>
                     <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign In</Button>
                 </div>
             </form>
