@@ -20,7 +20,7 @@ export default function CartDropdown() {
                     <CartItem key={item.id} props={item}/>
                 )}
             </div>
-            <Button onClick={gotoCheckOutHandler}>CHECKOUT</Button>
+            <Button>CHECKOUT</Button>
         </div>
     )
 }

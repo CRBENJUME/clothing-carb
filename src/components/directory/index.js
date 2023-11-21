@@ -1,6 +1,6 @@
 import React from "react";
 import Products from "../../products.json"
-import CategoryItem from "../category-item";
+import DirectoryItem from "../directory-item";
 import './styles.css'
 
 const categories = Products
@@ -10,7 +10,7 @@ export default function Directory () {
         <div className="directory-con">
           {
             categories.map(( category ) => (
-                <CategoryItem key={category.id} category={category}/>
+                <DirectoryItem key={category.id} category={category}/>
               )
             )
           }

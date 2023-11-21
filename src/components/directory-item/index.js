@@ -1,17 +1,17 @@
 import React from "react";
 import './index.css'
 
-export default function CategoryItem({ category }) {
+export default function DirectoryItem({ category }) {
     const { imageUrl, title } = category
     return (
-        <header className="category-con">
+        <header className="directory-item-container">
             <div
                 className='background-image'
                 style={
                     { backgroundImage: `url(${imageUrl})` }
                 }
             />
-            <div className="cBody-con">
+            <div className="body">
                 <h2>{title}</h2>
                 <p>SHOP NOW</p>
             </div>
